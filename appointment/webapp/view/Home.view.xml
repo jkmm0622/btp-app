@@ -1,0 +1,50 @@
+<mvc:View
+    controllerName="com.appointment.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <Table
+                id="idStudent"
+                items="{/ZJI_PAT_APP_ASS}"
+            >
+                <columns>
+                    <Column>
+                        <Text text="Id" />
+                    </Column>
+                    <Column>
+                        <Text text="Name" />
+                    </Column>
+                    <Column>
+                        <Text text="Mobile" />
+                    </Column>
+
+                    <Column>
+                        <Text text="Email" />
+                    </Column>
+
+                    <Column>
+                        <Text text="Address" />
+                    </Column>
+                </columns>
+
+                <ColumnListItem >
+                    <cells>
+                       
+                        <Text text="{PId}" />
+                        <Text text="{Name}" />
+                        <Text text="{Mobile}" />
+                        <Text text="{Email}" />
+                        <Text text="{Address}" />
+                       
+                    </cells>
+                </ColumnListItem>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

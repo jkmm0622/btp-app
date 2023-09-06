@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZJI_PAT_APP_ASS_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="zji_appointmentType" sap:label="Get all appointment" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AppointmentId"/>
+                    <PropertyRef Name="DoctorId"/>
+                    <PropertyRef Name="PatientId"/>
+                </Key>
+                <Property Name="AppointmentId" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Appointment ID"/>
+                <Property Name="DoctorId" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:label="Docotor Id"/>
+                <Property Name="PatientId" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:label="Patient Id"/>
+                <Property Name="Category" Type="Edm.String" MaxLength="60" sap:label="Category"/>
+                <Property Name="Slot" Type="Edm.String" MaxLength="60" sap:label="Slot"/>
+                <Property Name="SlotDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Doc Slot Date" sap:quickinfo="Doctor Slot Date"/>
+                <Property Name="AppDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Appointment Date"/>
+                <Property Name="AppTime" Type="Edm.Time" Precision="0" sap:label="Appointment Time"/>
+            </EntityType>
+            <EntityType Name="ZJI_PAT_APP_ASSType" sap:label="Patient Appointment Assossciation" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="PId"/>
+                </Key>
+                <Property Name="PId" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:label="Patient Id"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Patient Name"/>
+                <Property Name="Mobile" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Patient Mobile"/>
+                <Property Name="Email" Type="Edm.String" MaxLength="50" sap:display-format="UpperCase" sap:label="Patient Email"/>
+                <Property Name="Address" Type="Edm.String" MaxLength="50" sap:display-format="UpperCase" sap:label="Patient Address"/>
+                <NavigationProperty Name="to_a" Relationship="ZJI_PAT_APP_ASS_CDS.assoc_CBA6C80D40D213FA9E28293C98CDB08B" FromRole="FromRole_assoc_CBA6C80D40D213FA9E28293C98CDB08B" ToRole="ToRole_assoc_CBA6C80D40D213FA9E28293C98CDB08B"/>
+            </EntityType>
+            <Association Name="assoc_CBA6C80D40D213FA9E28293C98CDB08B" sap:content-version="1">
+                <End Type="ZJI_PAT_APP_ASS_CDS.ZJI_PAT_APP_ASSType" Multiplicity="1" Role="FromRole_assoc_CBA6C80D40D213FA9E28293C98CDB08B"/>
+                <End Type="ZJI_PAT_APP_ASS_CDS.zji_appointmentType" Multiplicity="*" Role="ToRole_assoc_CBA6C80D40D213FA9E28293C98CDB08B"/>
+            </Association>
+            <EntityContainer Name="ZJI_PAT_APP_ASS_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="zji_appointment" EntityType="ZJI_PAT_APP_ASS_CDS.zji_appointmentType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZJI_PAT_APP_ASS" EntityType="ZJI_PAT_APP_ASS_CDS.ZJI_PAT_APP_ASSType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_CBA6C80D40D213FA9E28293C98CDB08B" Association="ZJI_PAT_APP_ASS_CDS.assoc_CBA6C80D40D213FA9E28293C98CDB08B" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZJI_PAT_APP_ASS" Role="FromRole_assoc_CBA6C80D40D213FA9E28293C98CDB08B"/>
+                    <End EntitySet="zji_appointment" Role="ToRole_assoc_CBA6C80D40D213FA9E28293C98CDB08B"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="ZJI_PAT_APP_ASS_CDS.ZJI_PAT_APP_ASS_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ZJI_PAT_APP_ASS_CDS.ZJI_PAT_APP_ASS_CDS_Entities/ZJI_PAT_APP_ASS" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_a"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://test.btp.com:8002/sap/opu/odata/sap/ZJI_PAT_APP_ASS_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://test.btp.com:8002/sap/opu/odata/sap/ZJI_PAT_APP_ASS_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

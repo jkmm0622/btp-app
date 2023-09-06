@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.6"
+metadata:
+  name: com.appointment
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: S4
+          url: http://test.btp.com:8002/
+        app:
+          name: ZAPP2
+          description: App 2
+          package: ZMM0622
+          transport: S4HK900099
+        exclude:
+          - /test/
